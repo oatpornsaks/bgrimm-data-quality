@@ -1,0 +1,5 @@
+database_name,schema_name,table_name,column_count
+pi_db,public,hourly_data_somi,12
+pi_db,public,mv_tbl__experiment_grouped_pi_mat__0,0
+pi_db,public,mv_tbl__experiment_interpolated_pi_mat__0,0
+pi_db,public,pi_data_staging,4

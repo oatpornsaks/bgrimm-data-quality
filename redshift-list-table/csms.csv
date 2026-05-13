@@ -1,0 +1,9 @@
+database_name,schema_name,table_name,column_count
+csms_powerex,dbo,plant,6
+csms_powerex,dbo,realdata,11
+csms_powerex,dbo,tag,9
+csms_powerex,public,awsdms_apply_exceptions,6
+csms_powerex,public,plant,7
+csms_powerex,public,realdata,12
+csms_powerex,public,realdata_staging,12
+csms_powerex,public,tag_,10

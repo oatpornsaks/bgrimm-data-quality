@@ -1,0 +1,13 @@
+database_name,schema_name,table_name,column_count
+solar_roof,hino,daily_report_data,5
+solar_roof,hino,device_master,12
+solar_roof,hino,historical_data,5
+solar_roof,hino,historical_data_2,5
+solar_roof,hino,plant_master,9
+solar_roof,hino,stagging_historical_data,5
+solar_roof,power,device_master,12
+solar_roof,power,historical_data,5
+solar_roof,power,historical_data_staging,5
+solar_roof,power,plant_master,9
+solar_roof,power,realtime_data,5
+solar_roof,power,realtime_data_staging,5

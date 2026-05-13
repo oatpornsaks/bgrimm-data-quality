@@ -1,0 +1,15 @@
+database_name,schema_name,table_name,column_count
+procurement_data,public,ap,24
+procurement_data,public,budget_2025,3
+procurement_data,public,budget_commercial,5
+procurement_data,public,gr,32
+procurement_data,public,mv_tbl__account_amount_2025__0,0
+procurement_data,public,mv_tbl__budget_account_amount__0,0
+procurement_data,public,mv_tbl__cost_deduction__0,0
+procurement_data,public,mv_tbl__group_flow__0,0
+procurement_data,public,mv_tbl__pc_group_flow__0,0
+procurement_data,public,mv_tbl__vendor_2__0,0
+procurement_data,public,mv_tbl__vendor__0,0
+procurement_data,public,mv_tbl__vendor_status__0,0
+procurement_data,public,po,58
+procurement_data,public,pr,55

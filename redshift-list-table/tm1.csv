@@ -1,0 +1,10 @@
+database_name,schema_name,table_name,column_count
+tm1,power,actual,8
+tm1,power,actual_solar,12
+tm1,power,budget,7
+tm1,power,budget_solar,12
+tm1,power,forecast,8
+tm1,power,ft_actual_solar,3
+tm1,power,ft_budget_solar,3
+tm1,power,master,9
+tm1,power,master_solar,4

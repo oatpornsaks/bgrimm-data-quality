@@ -1,0 +1,8 @@
+database_name,schema_name,table_name,column_count
+itsm,pg_automv,mv_tbl__auto_mv_215182294__0,0
+itsm,public,incident_record,26
+itsm,public,requested_item_record,13
+itsm,public,sla_task_record,10
+itsm,public,time_card_record,15
+itsm,public,time_sheet_record,4
+itsm,public,time_worked,4

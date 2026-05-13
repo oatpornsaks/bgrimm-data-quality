@@ -1,0 +1,7 @@
+database_name,schema_name,table_name,column_count
+ir,set,consensus_analyst,28
+ir,set,set_index,20
+ir,set,stock_price,23
+ir,set,stock_price_staging,23
+ir,shareholder,master_shareholder_name,5
+ir,shareholder,shareholder_holdings_monthly,14
