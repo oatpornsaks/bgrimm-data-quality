@@ -1,5 +1,5 @@
 {
-  "name": "bgrimm-datagov-q4-v862-rep-data-quality",
+  "name": "bgrimm-datagov-q4-data-quality",
   "jobMode": "VISUAL",
   "description": "",
   "role": "arn:aws:iam::140023373092:role/bgrimm-datagov-q4-glue-role",
@@ -8,7 +8,7 @@
   },
   "command": {
     "name": "glueetl",
-    "scriptLocation": "s3://aws-glue-assets-140023373092-ap-southeast-1/scripts/bgrimm-datagov-q4-v862-rep-data-quality.py",
+    "scriptLocation": "s3://aws-glue-assets-140023373092-ap-southeast-1/scripts/bgrimm-datagov-q4-data-quality.py",
     "pythonVersion": "3"
   },
   "defaultArguments": {
