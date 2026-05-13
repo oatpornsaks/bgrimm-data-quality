@@ -1,0 +1,47 @@
+{
+  "name" : "bgrimm-prod-csms-data-quality",
+  "jobMode" : "VISUAL",
+  "description" : "",
+  "role" : "arn:aws:iam::140023373092:role/bgrimm-datagov-csms-glue-role",
+  "executionProperty" : {
+    "maxConcurrentRuns" : 1
+  },
+  "command" : {
+    "name" : "glueetl",
+    "scriptLocation" : "s3://aws-glue-assets-140023373092-ap-southeast-1/scripts/bgrimm-prod-csms-data-quality.py",
+    "pythonVersion" : "3"
+  },
+  "defaultArguments" : {
+    "--enable-glue-datacatalog" : "true",
+    "--job-bookmark-option" : "job-bookmark-disable",
+    "--TempDir" : "s3://aws-glue-assets-140023373092-ap-southeast-1/temporary/",
+    "--enable-metrics" : "true",
+    "--enable-spark-ui" : "true",
+    "--extra-py-files" : "s3://aws-glue-assets-140023373092-ap-southeast-1/transforms/post_dq_results_to_datazone.py",
+    "--spark-event-logs-path" : "s3://aws-glue-assets-140023373092-ap-southeast-1/sparkHistoryLogs/",
+    "--enable-job-insights" : "true",
+    "--additional-python-modules" : "boto3>=1.34.105",
+    "--enable-observability-metrics" : "true",
+    "--conf" : "spark.sql.parquet.int96RebaseModeInRead=LEGACY --conf spark.eventLog.rolling.enabled=true",
+    "--enable-continuous-cloudwatch-log" : "true",
+    "--job-language" : "python"
+  },
+  "connections" : {
+    "connections" : [ "bgrimm-datagov-csms-redshift-connection" ]
+  },
+  "maxRetries" : 0,
+  "allocatedCapacity" : 10,
+  "timeout" : 480,
+  "maxCapacity" : 10.0,
+  "glueVersion" : "5.1",
+  "numberOfWorkers" : 10,
+  "workerType" : "G.1X",
+  "executionClass" : "STANDARD",
+  "codeGenConfigurationNodes" : "{\"node-1778695128649\":{\"DynamicTransform\":{\"FunctionName\":\"post_dq_results_to_datazone\",\"Inputs\":[\"node-1778695102182\"],\"Name\":\"Datazone DQ Result Sink\",\"Parameters\":[{\"IsOptional\":false,\"Name\":\"roleToAssume\",\"Type\":\"str\",\"Value\":[\"arn:aws:iam::140023373092:role/bgrimm-datagov-csms-glue-role\"]},{\"IsOptional\":false,\"Name\":\"dzDomain\",\"Type\":\"str\",\"Value\":[\"dzd-3qd7u9qhm02q8x\"]},{\"IsOptional\":false,\"Name\":\"tableName\",\"Type\":\"str\",\"Value\":[\"plant\"]},{\"IsOptional\":false,\"Name\":\"schemaName\",\"Type\":\"str\",\"Value\":[\"dbo\"]},{\"IsOptional\":false,\"Name\":\"dqRuleSetName\",\"Type\":\"str\",\"Value\":[\"dq_plant\"]},{\"IsOptional\":true,\"Name\":\"maxResults\",\"Type\":\"int\",\"Value\":[\"5\"]}],\"Path\":\"s3://aws-glue-assets-140023373092-ap-southeast-1/transforms/post_dq_results_to_datazone.py\",\"TransformName\":\"post_DQ_results_to_DZ\",\"Version\":\"1.0.0\"}},\"node-1778695048716\":{\"EvaluateDataQualityMultiFrame\":{\"AdditionalDataSources\":{},\"AdditionalOptions\":{\"performanceTuning.caching\":\"CACHE_NOTHING\"},\"Inputs\":[\"node-1778694985832\"],\"Name\":\"Evaluate Data Quality\",\"PublishingOptions\":{\"CloudWatchMetricsEnabled\":true,\"ResultsPublishingEnabled\":true,\"ResultsS3Prefix\":\"\"},\"Ruleset\":\"# Example rules: Completeness \\\"colA\\\" between 0.4 and 0.8, ColumnCount > 10\\nRules = [\\n    ColumnCount = 10     \\n]\",\"StopJobOnFailureOptions\":{}}},\"node-1778694985832\":{\"AmazonRedshiftSource\":{\"Data\":{\"AccessType\":\"connection\",\"Action\":\"append\",\"AdvancedOptions\":[],\"Connection\":{\"Description\":\"No description available. Version: 2\",\"Label\":\"bgrimm-datagov-csms-redshift-connection\",\"Value\":\"bgrimm-datagov-csms-redshift-connection\"},\"MergeAction\":\"simple\",\"MergeWhenMatched\":\"update\",\"MergeWhenNotMatched\":\"insert\",\"Schema\":{\"Label\":\"dbo\",\"Value\":\"dbo\"},\"SelectedColumns\":[],\"SourceType\":\"table\",\"StagingTable\":\"dbo.plant_temp_ybjipq\",\"Table\":{\"Label\":\"plant\",\"Value\":\"plant\"},\"TableSchema\":[],\"TempDir\":\"s3://aws-glue-assets-140023373092-ap-southeast-1/temporary/\",\"Upsert\":false},\"Name\":\"dbo_plant\"}},\"node-1778695102182\":{\"SelectFromCollection\":{\"Index\":0,\"Inputs\":[\"node-1778695048716\"],\"Name\":\"ruleOutcomes\"}}}",
+  "sourceControlDetails" : {
+    "provider" : "GITHUB",
+    "repository" : "bgrimm-data-quality",
+    "branch" : "main",
+    "folder" : "glue-dq/bgrimm-datagov-csms-data-quality"
+  }
+}
