@@ -1,0 +1,41 @@
+{
+  "name" : " bgrimm-datagov-q4-data-quality",
+  "jobMode" : "VISUAL",
+  "description" : "",
+  "role" : "arn:aws:iam::140023373092:role/bgrimm-datagov-q4-glue-role",
+  "executionProperty" : {
+    "maxConcurrentRuns" : 1
+  },
+  "command" : {
+    "name" : "glueetl",
+    "scriptLocation" : "s3://aws-glue-assets-140023373092-ap-southeast-1/scripts/ bgrimm-datagov-q4-data-quality.py",
+    "pythonVersion" : "3"
+  },
+  "defaultArguments" : {
+    "--enable-metrics" : "true",
+    "--enable-spark-ui" : "true",
+    "--spark-event-logs-path" : "s3://aws-glue-assets-140023373092-ap-southeast-1/sparkHistoryLogs/",
+    "--enable-job-insights" : "true",
+    "--additional-python-modules" : "boto3>=1.34.105",
+    "--enable-observability-metrics" : "true",
+    "--conf" : "spark.sql.parquet.int96RebaseModeInRead=LEGACY --conf spark.eventLog.rolling.enabled=true",
+    "--enable-glue-datacatalog" : "true",
+    "--job-bookmark-option" : "job-bookmark-disable",
+    "--job-language" : "python",
+    "--TempDir" : "s3://aws-glue-assets-140023373092-ap-southeast-1/temporary/"
+  },
+  "maxRetries" : 0,
+  "allocatedCapacity" : 10,
+  "timeout" : 480,
+  "maxCapacity" : 10.0,
+  "glueVersion" : "5.0",
+  "numberOfWorkers" : 10,
+  "workerType" : "G.1X",
+  "executionClass" : "STANDARD",
+  "sourceControlDetails" : {
+    "provider" : "GITHUB",
+    "repository" : "bgrimm-data-quality",
+    "branch" : "main",
+    "folder" : "glue-dq/bgrimm-datagov-q4-data-quality"
+  }
+}
