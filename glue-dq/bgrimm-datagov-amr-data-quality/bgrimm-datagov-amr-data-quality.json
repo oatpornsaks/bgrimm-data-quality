@@ -27,8 +27,8 @@
   },
   "connections": {
     "connections": [
-      "bgrimm-datagov-g2-amr-redshift-connection",
-      "bgrimm-datagov-g3-amr-redshift-connection"
+      " bgrimm-datagov-g2-amr-redshift-connection",
+      " bgrimm-datagov-g3-amr-redshift-connection"
     ]
   },
   "maxRetries": 0,
