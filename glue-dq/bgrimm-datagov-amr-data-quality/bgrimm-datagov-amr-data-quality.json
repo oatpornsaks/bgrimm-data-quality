@@ -25,8 +25,11 @@
     "--job-language" : "python",
     "--TempDir" : "s3://aws-glue-assets-140023373092-ap-southeast-1/temporary/"
   },
-  "connections" : {
-    "connections" : [ "bgrimm-datagov-g2-amr-redshift-connection", "bgrimm-datagov-g3-amr-redshift-connection" ]
+  "connections": {
+    "connections": [
+      " bgrimm-datagov-g2-amr-redshift-connection",
+      " bgrimm-datagov-g3-amr-redshift-connection"
+    ]
   },
   "maxRetries" : 0,
   "allocatedCapacity" : 10,
