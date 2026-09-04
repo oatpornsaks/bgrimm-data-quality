@@ -1,0 +1,13 @@
+# Ignore everything by default
+/*
+
+# Allow only these folders
+!example/
+!glue-dq/
+!redshift-list-table/
+
+# Keep the .gitignore itself tracked
+!.gitignore
+
+# Ignore macOS metadata files anywhere
+.DS_Store
