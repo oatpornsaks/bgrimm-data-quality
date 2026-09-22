@@ -40,6 +40,14 @@ jq '{
   WorkerType: .workerType,
   GlueVersion: .glueVersion,
   ExecutionClass: .executionClass,
+  Tags: {
+    "consumer": "bgp",
+    "env": "prod",
+    "map-migrated": "migJBJ4SEIYW9",
+    "ou": "bgp",
+    "owner": "bgd",
+    "proj": "data-gov"
+  },
   CodeGenConfigurationNodes: (.codeGenConfigurationNodes | fromjson)
 }' "$JOB_FILE" > "$TEMP_FILE"
 
