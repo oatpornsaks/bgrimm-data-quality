@@ -6,6 +6,11 @@
 !glue-dq/
 !redshift-list-table/
 
+# Allow script files
+!deploy-job.sh
+!fix-iam-role.py
+#!README-scripts.md
+
 # Keep the .gitignore itself tracked
 !.gitignore
 
